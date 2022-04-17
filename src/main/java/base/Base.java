@@ -105,7 +105,7 @@ public class Base {
 		getDriver().get(prop.getProperty("url"));		
 	}
 	
-	@AfterSuite
+	@AfterSuite(groups = {"Smoke", "Regression", "Sanity"})
 	public void afterSuite() {
 		ExtentManager.endReport();
 	}

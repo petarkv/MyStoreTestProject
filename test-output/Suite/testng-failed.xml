@@ -4,18 +4,23 @@
   <listeners>
     <listener class-name="resources.ListenerClass"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Regression(failed)">
     <parameter name="browser" value="Chrome"/>
+    <groups>
+      <run>
+        <include name="Regression"/>
+      </run>
+    </groups>
     <classes>
-      <class name="testCases.IndexPageTest">
+      <class name="testCases.AccountCreationPageTest">
         <methods>
-          <include name="afterSuite"/>
           <include name="setup"/>
-          <include name="loadConfig"/>
           <include name="tearDown"/>
-          <include name="verifyTitle"/>
+          <include name="afterSuite"/>
+          <include name="createAccountTest" invocation-numbers="0 2"/>
+          <include name="loadConfig"/>
         </methods>
-      </class> <!-- testCases.IndexPageTest -->
+      </class> <!-- testCases.AccountCreationPageTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Regression(failed) -->
 </suite> <!-- Failed suite [Suite] -->
